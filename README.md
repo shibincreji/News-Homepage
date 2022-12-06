@@ -18,7 +18,7 @@ Users should be able to:
 
 ### Links
 
--   Solution URL: [Github](https://github.com/adram3l3ch/news-homepage)
+-   Solution URL: [Github](https://github.com/shibincreji/News-Homepage)
 -   Live Site URL: [Netlify](https://adremelech-news-home.netlify.app)
 
 ## My process
