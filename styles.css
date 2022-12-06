@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Inter", sans-serif;
+	display: flex;
+	align-items: center;
+	min-height: 100vh;
+}
+
+h1 {
+	font-size: 3.5rem;
+	font-weight: 800;
+	line-height: 1em;
+}
+
+h2 {
+	font-size: 2.5rem;
+	color: hsl(240, 100%, 5%);
+}
+
+h3 {
+	font-size: 1.2rem;
+	margin-block: 0.5rem;
+}
+
+h4 {
+	font-weight: 800;
+	font-size: 1.1rem;
+	margin-bottom: 0.5rem;
+}
+
+p {
+	font-size: 0.9rem;
+	line-height: 1.75em;
+	color: hsl(236, 13%, 42%);
+}
+
+.container {
+	max-width: 1200px;
+	width: 100%;
+	margin-inline: auto;
+	padding: 2rem;
+	scale: 0.9;
+	overflow: hidden;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+nav ul {
+	display: flex;
+	list-style: none;
+	gap: 2rem;
+}
+
+nav ul a {
+	text-decoration: none;
+	color: hsl(236, 13%, 42%);
+}
+nav ul a:hover {
+	color: hsl(5, 85%, 63%);
+}
+
+header input,
+header label {
+	display: none;
+}
+
+main {
+	animation: fade-in 400ms ease-in;
+}
+
+.content {
+	display: flex;
+	gap: 2rem;
+	margin-block: 4rem;
+}
+
+.content > article {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr auto;
+	gap: 2rem;
+}
+
+.content > article img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	grid-column: span 2;
+}
+
+.description {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	justify-content: space-between;
+	align-items: start;
+}
+
+.cta {
+	border: none;
+	position: relative;
+	isolation: isolate;
+	padding: 1rem 2rem;
+	color: white;
+	font-size: 0.9rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-family: inherit;
+	letter-spacing: 0.3em;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.cta::after {
+	position: absolute;
+	content: "";
+	inset: 0;
+	width: 200%;
+	background: linear-gradient(to right, hsl(5, 85%, 63%) 50%, hsl(240, 100%, 5%) 50%);
+	z-index: -1;
+	transition: transform 0.2s linear;
+}
+
+.cta:hover::after {
+	transform: translateX(-50%);
+}
+
+.new__articles {
+	width: clamp(300px, 25vw, 370px);
+	flex-shrink: 0;
+	background-color: hsl(240, 100%, 5%);
+	padding: 2rem;
+}
+
+.new__articles h2 {
+	color: hsl(35, 77%, 62%);
+}
+
+.new__article p {
+	color: hsl(233, 8%, 79%);
+}
+
+.new__article {
+	padding-block: 1.5rem;
+	color: white;
+}
+
+.new__article h3:hover {
+	color: hsl(35, 77%, 62%);
+	cursor: pointer;
+}
+
+.new__article:not(:last-child) {
+	border-bottom: 1px solid hsl(233, 8%, 79%);
+}
+
+.top__articles {
+	display: flex;
+	gap: 2rem;
+}
+
+.top__article {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 0 1.5rem;
+	flex: 1;
+	align-items: center;
+}
+
+.top__article img {
+	grid-row: 1/4;
+	width: 100px;
+	height: 100%;
+	object-fit: cover;
+}
+
+.top__article h4:hover {
+	color: hsl(5, 85%, 63%);
+	cursor: pointer;
+}
+
+.number {
+	color: hsl(233, 8%, 79%);
+	font-size: 1.5rem;
+	font-weight: 800;
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+}
+
+@media (max-width: 1000px) {
+	.container {
+		padding: 2rem 1rem;
+		scale: 1;
+	}
+	.content {
+		gap: 1rem;
+	}
+}
+
+@media (max-width: 800px) {
+	:root {
+		font-size: 14px;
+	}
+	.content {
+		flex-direction: column;
+		gap: 4rem;
+	}
+	.container {
+		padding: 2rem 0.5rem;
+	}
+	.content article {
+		display: flex;
+		flex-direction: column;
+	}
+	.new__articles {
+		width: 100%;
+		padding: 1.5rem;
+	}
+	.top__articles {
+		flex-direction: column;
+	}
+
+	header label {
+		display: block;
+	}
+
+	nav {
+		position: fixed;
+		background-color: white;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 5;
+		width: min(90%, 400px);
+		display: flex;
+		padding: 2rem;
+		transform: translateX(100%);
+		transition: transform 0.2s ease-in-out;
+	}
+
+	header:has(input:checked) nav {
+		transform: translateX(0);
+	}
+
+	html:has(input:checked) {
+		overflow: hidden;
+	}
+
+	.container::after {
+		position: fixed;
+		content: "";
+		inset: 0;
+		background-color: rgba(5, 5, 5, 0.507);
+		opacity: 0;
+		transition: opacity 0.2s linear;
+	}
+
+	.container:has(input:checked)::after {
+		opacity: 1;
+	}
+
+	nav ul {
+		margin-top: 10rem;
+		flex-direction: column;
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+
+	header label {
+		z-index: 10;
+		width: 30px;
+		aspect-ratio: 1;
+		background: url(./assets/images/icon-menu.svg) no-repeat center/contain;
+		margin-right: 1rem;
+	}
+
+	header input:checked + label {
+		background: url(./assets/images/icon-menu-close.svg) no-repeat center/contain;
+	}
+}
